@@ -1,8 +1,10 @@
 from models.database import Database
+from models.hardware import HardwareMonitor
 
 class SrvController:
     def __init__(self):
         self.db = Database()
+        self.hw = HardwareMonitor()
 
     def obtener_inventario_completo(self):
         """Obtiene todos los servidores de la base de datos."""
@@ -30,3 +32,9 @@ class SrvController:
             if self.db.connection:
                 self.db.connection.close()
         return resultados
+    
+    def obtener_datos_dashboard(self):
+        return {
+            'servidores': self.obtener_inventario_completo(),
+            'monitoreo': self.hw.obtener_metricas()
+        }

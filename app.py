@@ -7,8 +7,10 @@ controlador = SrvController()
 
 @app.route('/')
 def index():
-    datos = controlador.obtener_inventario_completo()
-    return render_template('index.html', servidores=datos)
+    # datos = controlador.obtener_inventario_completo()
+    
+    paquete_datos = controlador.obtener_datos_dashboard()
+    return render_template('index.html', servidores=paquete_datos['servidores'], monitoreo=paquete_datos['monitoreo'])
 
 """def ejecutar_sistema():
     print("====== CLOUDCORE-WEB: Modelo de ingeneria (semana 2) ======")

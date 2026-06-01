@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudCore Admin | Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card bg-secondary text-white shadow-lg border-0">
+                    <div class="card-header bg-success bg-opacity-10">
+                        <h3 class="mb-0">Registrar nuevo servidor</h3>
+                    </div>
+                </div>
+                <div class="card-body bg-dark">
+                    <form method="POST" action="/registro">
+                        <div class="mb-3">
+                            <label for="hostname" class="form-label">Hostname</label>
+                            <input type="text" class="form-control" id="hostname" name="hostname" required requied-placeholder="Ej: SRV-01">
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion_ip" class="form-label">Dirección IP</label>
+                            <input type="text" class="form-control" id="direccion_ip" name="direccion_ip" required requied-placeholder="Ej: 192.168.1.1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sistema_op" class="form-label">Sistema Operativo</label>
+                            <select class="form-control" id="sistema_op" name="sistema_op" required>
+                                <option value="">Seleccione un sistema operativo</option>
+                                <option value="Windows">Windows</option>
+                                <option value="Linux">Linux</option>
+                                <option value="macOS">macOS</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipos" class="form-label">Tipos de Componentes</label>
+                            <select class="form-control" id="tipos" name="tipos" required>
+                                <option value="">Seleccione un componente</option>
+                                <option value="CPU">Procesador</option>
+                                <option value="RAM">Memoria RAM</option>
+                                <option value="Disco Duro">Almacenamiento</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="capacidad" class="form-label">Capacidad (GB)</label>
+                            <input type="number" class="form-control" id="capacidad" name="capacidad" required placeholder="Ej: 16">
+                        </div>
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

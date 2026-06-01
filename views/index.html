@@ -17,7 +17,7 @@
                     <h6 class="text-uppercase opacity-75">uso de CPU</h6>
                     <h2 class="display-4 fw-bold">{{ monitoreo.cpu_uso }}%</h2>
                     <div class="progress bg-white bg-opacity-25" style="height: 10px;">
-                        <div class="progress-bar bg-white" style="width: {{ monitoreo.cpu_uso }}%;"></div>
+                        <div class="progress-bar bg-white" data-width="{{ monitoreo.cpu_uso }}" style="width: 0%;"></div>
                     </div>
                 </div>
             </div>

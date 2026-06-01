@@ -20,3 +20,22 @@ class Database:
         except Error as e:
             print(f"Error connecting to MySQL: {e}")
             self.connection = None
+            
+    def ejecutar_query(self, query, params=None):
+        """Ejecuta una consulta SQL con parámetros opcionales."""
+        if self.connection is None:
+            print("Sin conexión con la base de datos.")
+            return None
+        
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, params or ())
+            self.connection.commit()
+            return cursor
+        except Error as e:
+            print(f"Error executing query: {e}")
+            self.connection.rollback()
+            return None
+        finally:
+            cursor.close()
+            self.connection.close()

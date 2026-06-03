@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="card-body bg-dark">
-                    <form method="POST" action="/registro">
+                    <form method="POST" action="/guardar_servidor">
                         <div class="mb-3">
                             <label for="hostname" class="form-label">Hostname</label>
                             <input type="text" class="form-control" id="hostname" name="hostname" required requied-placeholder="Ej: SRV-01">
@@ -27,28 +27,17 @@
                             <input type="text" class="form-control" id="direccion_ip" name="direccion_ip" required requied-placeholder="Ej: 192.168.1.1">
                         </div>
                         <div class="mb-3">
-                            <label for="sistema_op" class="form-label">Sistema Operativo</label>
-                            <select class="form-control" id="sistema_op" name="sistema_op" required>
+                            <label for="sistema_operativo" class="form-label">Sistema Operativo</label>
+                            <select class="form-control" id="sistema_operativo" name="sistema_operativo" required>
                                 <option value="">Seleccione un sistema operativo</option>
                                 <option value="Windows">Windows</option>
                                 <option value="Linux">Linux</option>
                                 <option value="macOS">macOS</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="tipos" class="form-label">Tipos de Componentes</label>
-                            <select class="form-control" id="tipos" name="tipos" required>
-                                <option value="">Seleccione un componente</option>
-                                <option value="CPU">Procesador</option>
-                                <option value="RAM">Memoria RAM</option>
-                                <option value="Disco Duro">Almacenamiento</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="capacidad" class="form-label">Capacidad (GB)</label>
-                            <input type="number" class="form-control" id="capacidad" name="capacidad" required placeholder="Ej: 16">
                         </div>
                         <button type="submit" class="btn btn-success">Registrar</button>
+                        <a href="/" class="btn btn-danger">Cancelar</a>
                     </form>
                 </div>
             </div>

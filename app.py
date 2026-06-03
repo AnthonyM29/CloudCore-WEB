@@ -20,9 +20,9 @@ def vista_registro():
 @app.route('/guardar_servidor', methods=['POST'])
 def guardar_servidor():
     datos = {
-        "hostname": request.form('hostname'),
-        "ip": request.form('ip'),
-        "sistema_operativo": request.form('sistema_operativo')
+        "hostname": request.form['hostname'],
+        "direccion_ip": request.form['direccion_ip'],
+        "sistema_operativo": request.form['sistema_operativo']
     }
     
     if controlador.registarrar_servidor(datos):

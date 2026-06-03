@@ -50,7 +50,7 @@ class SrvController:
             cursor = self.db.connection.cursor()
             query = "INSERT INTO auditoria (Tabla_afectada, accion, descripcion) VALUES (%s, %s, %s)"
             valores = ('infraestructura', accion, descripcion)
-            self.ejecutar_query(query, valores)
+            self.db.ejecutar_query(query, valores)
             return True
         except Exception as e:
             print(f"Error registrando auditoría: {e}")
@@ -64,9 +64,14 @@ class SrvController:
                 
     def registarrar_servidor(self, datos):
         """Registra un nuevo servidor en la base de datos."""
+        self.db.connect()
+        if not self.db.connection:
+            return False
+
         query = "INSERT INTO sevidores (hostname, direccion_ip, sistema_operativo) VALUES (%s, %s, %s)"
-        valores =(datos["hostname"], datos["ip"], datos["sistema_op"])
-        
+        valores = (datos["hostname"], datos["direccion_ip"], datos["sistema_operativo"])
+
         if self.db.ejecutar_query(query, valores):
             self.registrar_auditoria("INSERT", f"Servidor {datos['hostname']} registrado.")
             return True
+        return False
